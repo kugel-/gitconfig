@@ -1,0 +1,47 @@
+[user]
+    name = Thomas Martitz
+    email = kugel@rockbox.org
+[alias]
+    st = status
+    ci = commit
+    rb = rebase
+    br = branch
+    co = checkout
+    df = diff
+    lp = log -p
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    s = svn
+    sci = svn dcommit
+    srb = svn rebase
+    who = shortlog -s --
+    undo = reset --hard
+    up = pull --ff-only
+
+    ls-unmerged = !git ls-files --unmerged | cut -f2 | sort -u
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
+    ls-modified = !git ls-files --modified | cut -f2 | sort -u
+    rm-deleted = !git rm $(git ls-files --deleted)
+
+    write-cfg = !cp .gitconfig ~/.gitconfig
+    read-cfg = !cp ~/.gitconfig . && git add .gitconfig
+    rmbranch = !sh -c 'git branch -d $3 $1 && git push $2 :$1' -
+	cirec = commit --allow-empty-message  -t .git/COMMIT_EDITMSG
+[diff]
+	renamelimit = 1000
+[push]
+	default=tracking
+[sendemail]
+	smtpencryption = ssl
+	smtpserver = securesmtp.t-online.de
+	smtpuser = thomas.martitz
+	smtpserverport = 465
+#	smtpdomain = @t-online.de
+[color]
+	ui = auto
+[rerere]
+	enabled = true
+[gui]
+	recentrepo = /home/kugel/sources/pulseaudio
+[core]
+	pager = less -rix4
