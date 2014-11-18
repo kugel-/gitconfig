@@ -33,6 +33,7 @@
     rbc = rebase --continue
     rbs = rebase --skip
 
+    gitclone = "!bash -c 'git clone $1 ${1##*/}' -"
 [diff]
 	renamelimit = 1000
 [push]
