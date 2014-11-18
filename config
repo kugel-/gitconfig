@@ -16,6 +16,7 @@
     who = shortlog -s --
     undo = reset --hard
     up = pull --ff-only
+    amend = commit -v --amend
 
     ls-unmerged = !git ls-files --unmerged | cut -f2 | sort -u
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
@@ -27,6 +28,11 @@
     read-cfg = !cp ~/.gitconfig . && git add .gitconfig
     rmbranch = !sh -c 'git branch -d $3 $1 && git push $2 :$1' -
 	cirec = commit --allow-empty-message  -t .git/COMMIT_EDITMSG
+    rbi = rebase -i
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbs = rebase --skip
+
 [diff]
 	renamelimit = 1000
 [push]
@@ -44,4 +50,4 @@
 [gui]
 	recentrepo = /home/kugel/sources/pulseaudio
 [core]
-	pager = less -rix4
+	pager = less -RS
