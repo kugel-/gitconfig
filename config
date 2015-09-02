@@ -19,7 +19,7 @@
     amend = commit -v --amend
 
     ls-unmerged = !git ls-files --unmerged | cut -f2 | sort -u
-    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    add-unmerged = "!git add $(git ls-unmerged)"
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
     ls-modified = !git ls-files --modified | cut -f2 | sort -u
     rm-deleted = !git rm $(git ls-files --deleted)
@@ -52,3 +52,6 @@
 	recentrepo = /home/kugel/sources/pulseaudio
 [core]
 	pager = less -RS
+[color "diff"]
+	new = green bold
+	old = red bold
