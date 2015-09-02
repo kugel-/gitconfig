@@ -39,11 +39,11 @@
 [push]
 	default=tracking
 [sendemail]
-	smtpencryption = ssl
-	smtpserver = securesmtp.t-online.de
-	smtpuser = thomas.martitz
-	smtpserverport = 465
-#	smtpdomain = @t-online.de
+	smtpencryption = tls
+	smtpserver = smtp.mailbox.org
+	smtpuser = thomas.martitz@mailbox.org
+	smtpserverport = 587
+#	smtpdomain = @mailbox.org
 [color]
 	ui = auto
 [rerere]
